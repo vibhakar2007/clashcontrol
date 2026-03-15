@@ -1,225 +1,252 @@
+<p align="center">
+  <h1 align="center">⚔️ ClashControl</h1>
+  <p align="center">
+    Lightweight contest coordination system for coding competitions and symposium events.
+  </p>
+</p>
+
+<p align="center">
+
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/backend-Django-green)
+![NextJS](https://img.shields.io/badge/frontend-Next.js-black)
+![Database](https://img.shields.io/badge/database-SQLite-blue)
+![Status](https://img.shields.io/badge/status-active-success)
+
+</p>
+
+---
+
 # ⚔️ ClashControl
 
-**ClashControl** is a lightweight coordination and scoring system built for coding competitions, debugging rounds, and symposium tech events.
+**ClashControl** is a lightweight contest coordination system designed for **coding competitions, debugging rounds, and college symposium events**.
 
-It allows **multiple coordinators to manage participants, update scores, track completion times, and generate leaderboards in real time** from their phones.
+It allows **multiple coordinators to manage participants, update scores, record completion times, and track leaderboards in real time** using their mobile devices.
 
-ClashControl is designed for environments where **fast scoring, simplicity, and reliability** are more important than complex infrastructure.
-
----
-
-## 🚀 Features
-
-- 📱 **Mobile-Friendly Dashboard** – Coordinators can update scores easily from phones  
-- ➕ **Quick Score Updates** – Add or subtract points instantly  
-- 🏁 **Finish Tracking** – Record completion time when participants finish  
-- 🏆 **Live Leaderboard** – Admin panel displays sorted rankings  
-- 📊 **Batch Support** – Run multiple batches for large events  
-- 📁 **CSV Export** – Export results after each batch  
-- 📋 **Excel-Based Storage** – Simple `.xlsx` file used as database  
-- ⚡ **Lightweight & Fast** – Minimal dependencies, easy to deploy locally  
+The system is built to run **locally on a single machine**, allowing events to be conducted even **without internet access**.
 
 ---
 
-## 🎯 Use Cases
+# 🚀 Key Features
 
-ClashControl works great for:
-
-- 💻 Coding competitions  
-- 🐞 Debugging rounds  
-- 🧠 Programming contests  
-- 🏫 College symposium events  
-- 🛠 Hackathons  
-
-Multiple coordinators can **update scores simultaneously**, while the admin panel shows a **live leaderboard**.
+📱 **Mobile-friendly coordinator dashboard**  
+➕ **Quick score updates** for participants  
+⏱ **Finish time tracking** for tie-breaking  
+🏆 **Live leaderboard for administrators**  
+📦 **Batch support** for large events  
+📊 **CSV export** for results and records  
+🖥 **Local network hosting** for offline competitions
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-### Backend
+## Frontend
+
 <p>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height="40" alt="Flask"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" height="40"/>
 </p>
 
-### Frontend
+## Backend
+
 <p>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="HTML"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="CSS"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" height="40"/>
 </p>
 
-### Data Storage
+## Database
+
 <p>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" height="40" alt="Pandas"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" height="40"/>
 </p>
 
-- Excel (.xlsx)
-- Pandas
-- OpenPyXL
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
-```text
+```
 clashcontrol/
 │
-├── app.py                 # Main Flask server
-├── config.py              # Configuration settings
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
+├── README.md
+├── LICENSE
 │
-├── data/
-│   └── players.xlsx       # Excel "database"
-│
-├── templates/             # HTML templates
-│   ├── base.html
-│   ├── login.html
-│   ├── dashboard.html
-│   └── admin.html
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
+├── backend/
+│   ├── manage.py
+|   ├── requirements.txt
+│   ├── db.sqlite3
 │   │
-│   ├── js/
-│   │   ├── dashboard.js
-│   │   └── admin.js
+│   ├── clashcontrol/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── asgi.py
+│   │   └── wsgi.py
 │   │
-│   └── icons/
+│   ├── apps/
+│   │   ├── users/
+│   │   ├── participants/
+│   │   ├── scoring/
+│   │   └── events/
+│   │
+│   └── api/
+│       ├── views.py
+│       └── serializers.py
 │
-├── utils/
-│   ├── excel.py           # Excel read/write functions
-│   └── export.py          # CSV export utilities
+├── frontend/
+│   ├── package.json
+│   ├── next.config.js
+│   ├── tailwind.config.js
+│   │
+│   ├── public/
+│   │
+│   └── src/
+│       ├── app/
+│       │   ├── page.tsx
+│       │   ├── coordinator/
+│       │   └── admin/
+│       │
+│       ├── components/
+│       ├── lib/
+│       └── styles/
 │
-└── exports/               # Generated CSV exports
+└── exports/
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-Clone the repository:
+Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/clashcontrol.git
+git clone https://github.com/vibhakar2007/clashcontrol.git
 cd clashcontrol
 ```
 
-Create a virtual environment (recommended):
+---
+
+# ▶️ Running the Backend
+
+Navigate to backend directory
+
+```bash
+cd backend
+```
+
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the environment:
+Activate environment
 
-**Linux / macOS**
-```bash
-source venv/bin/activate
+Windows
+
 ```
-
-**Windows**
-```bash
 venv\Scripts\activate
 ```
 
-Install dependencies:
+Linux / macOS
 
-```bash
+```
+source venv/bin/activate
+```
+
+Install dependencies
+
+```
 pip install -r requirements.txt
 ```
 
+Run migrations
+
+```
+python manage.py migrate
+```
+
+Start server
+
+```
+python manage.py runserver
+```
+
+Backend runs at:
+
+```
+http://localhost:8000
+```
+
 ---
 
-## ▶️ Running ClashControl
+# ▶️ Running the Frontend
 
-Start the server:
+Open another terminal
 
 ```bash
-python app.py
+cd frontend
 ```
 
-Open the application:
+Install dependencies
 
 ```
-http://localhost:5000
+npm install
 ```
 
-To allow coordinators on the same network to connect:
-
-```python
-app.run(host="0.0.0.0", port=5000)
-```
-
-Then share your local IP address:
+Start development server
 
 ```
-http://YOUR_LOCAL_IP:5000
+npm run dev
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
 ```
 
 ---
 
-## 📊 Excel Data Format
+# 📱 Using ClashControl During Events
 
-The `players.xlsx` file acts as the system database.
-
-Recommended columns:
-
-| name  | score | status   | finish_time | batch | created_at |
-|-------|------|----------|-------------|------|------------|
-| Rahul | 30   | solving  | -           | 1    | 10:05      |
-| Ajay  | 45   | finished | 05:12       | 1    | 10:07      |
+1️⃣ Start backend server  
+2️⃣ Start frontend server  
+3️⃣ Connect all coordinator devices to the same network  
+4️⃣ Coordinators open the dashboard from their phones  
+5️⃣ Admin monitors leaderboard in real time
 
 ---
 
-## 🏆 Admin Panel
+# 📊 Planned Features
 
-The leaderboard can be accessed at:
-
-```
-/admin
-```
-
-The admin panel displays:
-
-- 🥇 Player rankings  
-- 📊 Scores  
-- ⏱ Finish times  
-- 📍 Current status (solving / finished)
+- Real-time leaderboard updates  
+- QR code participant check-in  
+- Multi-event management  
+- Role-based authentication  
+- Event analytics  
+- Standalone desktop installer
 
 ---
 
-## 📤 Export Results
+# 📜 License
 
-Export the leaderboard as CSV:
+This project is licensed under the **MIT License**.
 
-```
-/export
-```
-
-Exported files will be stored in the **exports/** directory.
+See the `LICENSE` file for details.
 
 ---
 
-## 🔮 Future Improvements
+# 👨‍💻 Author
 
-Potential upgrades for ClashControl:
+Developed by **Vibhakar S**
 
-- 🔄 Real-time updates using WebSockets  
-- 🔐 Coordinator authentication  
-- 🎯 Multiple events and rounds support  
-- 📺 Projector-friendly leaderboard display  
-- 📷 QR check-in for participants  
-- 📡 Offline-first synchronization  
+ClashControl was created to simplify coordination of **coding competitions and symposium technical events**.
 
 ---
 
-## 👨‍💻 Author
-
-### Vibhakar S
-Built to simplify coordination of competitive coding events.
-
-**ClashControl — Command Your Competition ⚔️**
+<p align="center">
+  ⚔️ Command Your Competition with ClashControl
+</p>
